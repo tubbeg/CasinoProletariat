@@ -1,0 +1,8 @@
+KINS/
+node_modules/
+fable_modules/
+bin/
+.config/
+obj/
+*.fs.js
+*.html
