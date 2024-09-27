@@ -5,4 +5,4 @@ bin/
 .config/
 obj/
 *.fs.js
-*.html
+Requirements.txt

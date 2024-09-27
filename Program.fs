@@ -1,7 +1,10 @@
 ﻿open Browser
 open Fable.Core
+open Bindings
 open Scene
 open Fable.Core.JsInterop
+open Config
+open HandScene
 
 type Card =
     | JOKER
@@ -10,37 +13,37 @@ type Card =
     | ACE
     | JACK
 
-[<Import("AUTO","phaser")>]
-let auto : int = jsNative
+let emitter = new EventEmitter()
 
-let arcade = {|gravity={|y=200|}|}
+let addCards () =
+    0
 
-let physics =
-    createObj [
-        "default","arcade";
-        "arcade", arcade
-    ]
+let prel (load : Loader) =
+    printfn "Preloading!"
+    //load.setBaseURL "https://labs.phaser.io"
+    //load.image "sky" "assets/skies/space3.png"
+    load.image "card" "./KINS/All.png"
 
-let conf c p =
-    createObj [
-        "type", auto
-        "width", 800
-        "height", 600
-        "scene", c
-        "physics",p
-    ]
+let creat (adder : ObjFactory) =
+    //adder.image 400 300 "sky"
+    adder.image 400 300 "card"
+    ()
 
+let updte () =
+    //printfn "Updating!"
+    ()
 
-let myScene = new Scene()
-let extScene = new SceneExtension()
+let m () = 0
 
-[<Import("Game","phaser")>]
-type Game (conf) =
-    class
-    end
+let extScene =
+    let c = {active=Some true;key=Some "SceneExtension"}
+    new SceneExtension (c,creat,updte,prel)
+let handScene =
+    let c = {active=Some true;key=Some "HandScene"}
+    new HandScene(c)
 
 let g =
-    let c = conf extScene physics
+    let c = conf [|handScene;extScene|] physics
     new Game (c)
     
 
