@@ -5,13 +5,8 @@ open Scene
 open Fable.Core.JsInterop
 open Config
 open HandScene
+open Cards
 
-type Card =
-    | JOKER
-    | KING 
-    | QUEEN
-    | ACE
-    | JACK
 
 let emitter = new EventEmitter()
 
@@ -35,12 +30,14 @@ let updte () =
 
 let m () = 0
 
+let testCard = (KING,CLUBS, (Score 10))
+
 let extScene =
     let c = {active=Some true;key=Some "SceneExtension"}
     new SceneExtension (c,creat,updte,prel)
 let handScene =
     let c = {active=Some true;key=Some "HandScene"}
-    new HandScene(c)
+    new HandScene(c,[testCard])
 
 let g =
     let c = conf [|handScene;extScene|] physics

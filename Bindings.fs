@@ -27,6 +27,7 @@ type GameObject () =
 type Sprite () =
     class
         inherit GameObject()
+        member val name = "" with get,set
         member this.setOrigin x y  = jsNative
         member this.setInteractive ()  = jsNative
     end
@@ -34,8 +35,8 @@ type Sprite () =
 [<Import("GameObjectFactory","phaser")>]
 type ObjFactory () =
     class
-        member this.image x y id  : unit = jsNative
-        member this.sprite x y id : Sprite = jsNative
+        member this.image x y (id : string)  : unit = jsNative
+        member this.sprite x y (id : string) : Sprite = jsNative
     end
 
 [<Import("AUTO","phaser")>]
@@ -46,7 +47,7 @@ let auto : int = jsNative
 type Loader () =
     class
         member this.setBaseURL url : unit = jsNative
-        member this.image id url : unit = jsNative
+        member this.image (id : string) (url : string) : unit = jsNative
     end
 
 
