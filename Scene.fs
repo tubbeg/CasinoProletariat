@@ -1,5 +1,5 @@
 module Scene
-open Bindings
+open PhaserInterop
 
 
 

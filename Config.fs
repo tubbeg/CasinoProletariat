@@ -1,6 +1,6 @@
 module Config
 open Fable.Core.JsInterop
-open Bindings
+open PhaserInterop
 
 let arcade = {|gravity={|y=200|}|}
 
@@ -10,11 +10,11 @@ let physics =
         "arcade", arcade
     ]
 
-let conf (c : array<Scene>) p =
+let conf (x,y) (c : array<Scene>) p =
     createObj [
         "type", auto
-        "width", 800
-        "height", 600
+        "width", x
+        "height", y
         "scene", c
         "physics",p
     ]

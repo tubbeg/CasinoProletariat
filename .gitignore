@@ -8,3 +8,6 @@ obj/
 Requirements.txt
 *.wav
 .fake
+*.js
+*.png
+*.jpg

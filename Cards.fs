@@ -23,3 +23,4 @@ type Id = Name of string
 type Path = Path of string
 type SceneCard =
     Card * Id * Path 
+type Deck = Card array

@@ -4,11 +4,12 @@
     <TargetFramework>net7.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="PhaserInterop.fs" />
+    <Compile Include="Utility.fs" />
     <Compile Include="Path.fs" />
     <Compile Include="Cards.fs" />
     <Compile Include="GameEvents.fs" />
     <Compile Include="Transform.fs" />
-    <Compile Include="Bindings.fs" />
     <Compile Include="Config.fs" />
     <Compile Include="HandScene.fs" />
     <Compile Include="Scene.fs" />
